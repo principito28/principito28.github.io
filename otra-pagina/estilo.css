@@ -1,0 +1,704 @@
+:root {
+
+    --cielo1: #111936;
+    --cielo2: #27345f;
+
+    --amarillo: #ffd92f;
+    --amarillo2: #ffb700;
+
+    --verde: #27733a;
+    --verdeOscuro: #174b29;
+
+    --tierra: #102d1c;
+
+    --texto: #fff8d6;
+}
+
+
+/* =========================
+   CONFIGURACIÓN
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+/* =========================
+   ESCENA
+   ========================= */
+
+.escena {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--cielo1) 0%,
+            var(--cielo2) 65%,
+            #4a4260 100%
+        );
+
+}
+
+
+/* =========================
+   ESTRELLAS
+   ========================= */
+
+.estrellas {
+
+    position: absolute;
+
+    width: 100%;
+    height: 70%;
+
+    background-image:
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            white 2px,
+            transparent 2px
+        );
+
+    background-size:
+        80px 80px,
+        130px 130px,
+        190px 190px;
+
+    background-position:
+        10px 20px,
+        50px 80px,
+        100px 30px;
+
+    animation: estrellas 5s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes estrellas {
+
+    from {
+        opacity: .5;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   LUNA
+   ========================= */
+
+.luna {
+
+    position: absolute;
+
+    top: 70px;
+    right: 12%;
+
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: #fffbdc;
+
+    box-shadow:
+        0 0 25px #fffbdc,
+        0 0 60px rgba(255, 251, 220, .5);
+
+}
+
+
+/* =========================
+   CARTA
+   ========================= */
+
+.carta {
+
+    position: absolute;
+
+    top: 45%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    max-width: 500px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background:
+        rgba(20, 25, 55, .82);
+
+    border:
+        1px solid rgba(255, 255, 255, .2);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .35);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 20;
+
+}
+
+
+.sobre {
+
+    font-size: 3rem;
+
+    margin-bottom: 10px;
+
+    animation: latido 2s infinite;
+
+}
+
+
+@keyframes latido {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+.carta h1 {
+
+    color: var(--amarillo);
+
+    font-size: 2.5rem;
+
+    margin-bottom: 15px;
+
+}
+
+
+.intro {
+
+    color: white;
+
+    font-size: 1.1rem;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================
+   BOTÓN
+   ========================= */
+
+button {
+
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--amarillo),
+            var(--amarillo2)
+        );
+
+    color: #493500;
+
+    font-size: 1rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+button:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 0 20px rgba(255, 217, 47, .5);
+
+}
+
+
+/* =========================
+   MENSAJE
+   ========================= */
+
+.mensaje {
+
+    margin-top: 25px;
+
+    color: var(--texto);
+
+    font-size: 1.2rem;
+
+    line-height: 1.6;
+
+    min-height: 70px;
+
+}
+
+
+.oculto {
+
+    display: none;
+
+}
+
+
+/* =========================
+   JARDÍN
+   ========================= */
+
+.jardin {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 230px;
+
+    z-index: 10;
+
+}
+
+
+/* =========================
+   PASTO
+   ========================= */
+
+.jardin::before {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    background:
+        linear-gradient(
+            to top,
+            var(--tierra),
+            var(--verdeOscuro)
+        );
+
+    border-radius: 50% 50% 0 0;
+
+}
+
+
+/* =========================
+   FLOR
+   ========================= */
+
+.flor {
+
+    position: absolute;
+
+    bottom: 20px;
+
+    width: 100px;
+    height: 250px;
+
+    transform-origin: bottom center;
+
+    animation:
+        crecer 2s ease forwards,
+        viento 4s ease-in-out infinite 2s;
+
+}
+
+
+/* =========================
+   TALLO
+   ========================= */
+
+.tallo {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 7px;
+    height: 175px;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            to right,
+            var(--verdeOscuro),
+            var(--verde),
+            var(--verdeOscuro)
+        );
+
+    border-radius: 10px;
+
+}
+
+
+/* =========================
+   HOJAS
+   ========================= */
+
+.hoja {
+
+    position: absolute;
+
+    width: 55px;
+    height: 25px;
+
+    background: var(--verde);
+
+    border-radius:
+        100% 0 100% 0;
+
+}
+
+
+.hoja-1 {
+
+    left: -45px;
+    top: 80px;
+
+    transform: rotate(-25deg);
+
+}
+
+
+.hoja-2 {
+
+    right: -45px;
+    top: 110px;
+
+    transform:
+        rotate(25deg)
+        scaleX(-1);
+
+}
+
+
+/* =========================
+   PÉTALOS
+   ========================= */
+
+.petalos {
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 100px;
+    height: 100px;
+
+    transform: translateX(-50%);
+
+}
+
+
+.petalos span {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 43px;
+    height: 68px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff044,
+            var(--amarillo2)
+        );
+
+    border-radius: 50%;
+
+    transform-origin:
+        center bottom;
+
+}
+
+
+.petalos span:nth-child(1) {
+    transform:
+        translate(-50%, -100%)
+        rotate(0deg);
+}
+
+
+.petalos span:nth-child(2) {
+    transform:
+        translate(-50%, -100%)
+        rotate(60deg);
+}
+
+
+.petalos span:nth-child(3) {
+    transform:
+        translate(-50%, -100%)
+        rotate(120deg);
+}
+
+
+.petalos span:nth-child(4) {
+    transform:
+        translate(-50%, -100%)
+        rotate(180deg);
+}
+
+
+.petalos span:nth-child(5) {
+    transform:
+        translate(-50%, -100%)
+        rotate(240deg);
+}
+
+
+.petalos span:nth-child(6) {
+    transform:
+        translate(-50%, -100%)
+        rotate(300deg);
+}
+
+
+/* =========================
+   CENTRO
+   ========================= */
+
+.centro {
+
+    position: absolute;
+
+    top: 34px;
+    left: 50%;
+
+    width: 44px;
+    height: 44px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #8d5a00 20%,
+            #5b3800 70%
+        );
+
+    z-index: 5;
+
+}
+
+
+/* =========================
+   ANIMACIÓN CRECER
+   ========================= */
+
+@keyframes crecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(100px)
+            scale(0);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   VIENTO
+   ========================= */
+
+@keyframes viento {
+
+    0%, 100% {
+        rotate: -2deg;
+    }
+
+    50% {
+        rotate: 3deg;
+    }
+
+}
+
+
+/* =========================
+   PÉTALOS QUE CAEN
+   ========================= */
+
+.petalo-caido {
+
+    position: absolute;
+
+    top: -30px;
+
+    width: 12px;
+    height: 18px;
+
+    background: var(--amarillo);
+
+    border-radius:
+        100% 0 100% 0;
+
+    z-index: 15;
+
+    animation:
+        caer linear forwards;
+
+}
+
+
+@keyframes caer {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+    10% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            translateX(150px)
+            rotate(720deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .luna {
+
+        width: 65px;
+        height: 65px;
+
+        top: 40px;
+        right: 10%;
+
+    }
+
+
+    .carta {
+
+        top: 42%;
+
+        padding: 28px 18px;
+
+    }
+
+
+    .carta h1 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .carta p {
+
+        font-size: 1rem;
+
+    }
+
+
+    .jardin {
+
+        height: 190px;
+
+    }
+
+}
